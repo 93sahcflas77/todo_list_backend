@@ -11,7 +11,7 @@
     
     <div class="container m-10 p-5">
         <a href="/" class="text-blue-600 text-md">Go to home</a>
-        <h1 class="fileName mt-6 text-3xl text-red-600"><%= fileName %></h1>
+        <h1 class="fileName mt-6 text-3xl text-red-600"><%= fileName.slice(0, fileName.indexOf(".")) %></h1>
         <p class="fileData mt-3 text-yellow-600"><%= filedata %></p>
     </div> 
 

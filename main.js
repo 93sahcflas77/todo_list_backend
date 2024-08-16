@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.get("/edit/:fileName", (req, res) => {
 
-    fs.readFile(`./files/${req.params.fileName}`, (err) => {
+    fs.readFile(`./files/${req.params.fileName}.txt`, (err) => {
         res.render("edit", { fileName: req.params.fileName });
     });
 });
@@ -30,6 +30,14 @@ app.get("/file/:fileName", (req, res) => {
 
     fs.readFile(`./files/${req.params.fileName}`, "utf-8", (err, data) => {
         res.render("show", { fileName: req.params.fileName, filedata: data });
+    });
+
+});
+
+app.get("/delete/:fileName", (req, res) => {
+
+    fs.unlink(`./files/${req.params.fileName}`, () => {
+        res.redirect("/");
     });
 
 });
